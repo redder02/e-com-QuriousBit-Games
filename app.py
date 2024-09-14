@@ -34,3 +34,14 @@ class Cart:
                 else:
                     item.quantity -= quantity
                 return
+
+
+    def view_cart(self):
+        total_cost = 0
+        print("Your Cart:")
+        for item in self.items:
+            total = item.total_price()
+            total_cost += total
+            print(f"{item.product.name} - Quantity: {item.quantity}, Price: {item.product.price:.2f} USD, Total: {total:.2f} USD")
+        print(f"Total (before discounts): {total_cost:.2f} USD")
+        return total_cost
